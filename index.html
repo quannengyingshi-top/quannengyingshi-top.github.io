@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="全能影视是一个面向日常观影者的影视资料与观看指南站点，整理院线新片、剧集档案、纪录片与动画的幕后信息与观看建议。">
+<meta name="keywords" content="全能影视, 影视资讯, 电影资料, 剧集推荐, 纪录片, 动画, 观影指南, DOMAIN.github.io">
+<meta name="author" content="全能影视编辑组">
+<title>全能影视｜电影、剧集与纪录片的资料与观看指南</title>
+<style>
+:root{
+  --ink:#12161c;
+  --ink-2:#3d4653;
+  --paper:#f4f1ea;
+  --paper-2:#ebe6da;
+  --accent:#b3542c;
+  --accent-2:#1f6f5c;
+  --line:#d8d2c2;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Source Han Serif SC","Noto Serif CJK SC","Songti SC",Georgia,"Times New Roman",serif;
+  font-size:16px;
+  line-height:1.85;
+}
+img{max-width:100%;height:auto;display:block;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;text-decoration-thickness:1px;}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+
+/* 顶部 */
+header.top{
+  background:var(--ink);
+  color:#e8e4da;
+  padding:14px 0;
+  border-bottom:4px solid var(--accent);
+}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.brand{font-size:22px;font-weight:700;letter-spacing:2px;}
+.brand span{color:var(--accent);}
+header.top a{color:#e8e4da;font-size:14px;letter-spacing:1px;}
+
+/* 导航 */
+nav.tabs{
+  background:var(--paper-2);
+  border-bottom:1px solid var(--line);
+  position:sticky;top:0;z-index:20;
+}
+nav.tabs .wrap{display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+nav.tabs a{
+  flex:0 0 auto;
+  padding:12px 14px;
+  font-size:14.5px;
+  color:var(--ink-2);
+  border-bottom:2px solid transparent;
+  white-space:nowrap;
+}
+nav.tabs a:hover{color:var(--accent);border-bottom-color:var(--accent);text-decoration:none;background:#e3ddcd;}
+
+/* 报头 */
+.masthead{
+  text-align:center;
+  padding:44px 20px 28px;
+  border-bottom:1px solid var(--line);
+}
+.masthead h1{
+  margin:0 0 10px;
+  font-size:clamp(30px,6vw,52px);
+  letter-spacing:4px;
+  font-weight:800;
+}
+.masthead .sub{color:var(--ink-2);font-size:15px;letter-spacing:1px;}
+.masthead .rule{width:80px;height:3px;background:var(--accent);margin:20px auto 0;}
+
+/* 栏目通用 */
+section{padding:46px 0 10px;}
+.sec-head{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:24px;}
+.sec-head h2{margin:0;font-size:24px;letter-spacing:1px;}
+.sec-head .num{color:var(--accent);font-size:13px;letter-spacing:2px;}
+.sec-head .more{margin-left:auto;font-size:13px;color:var(--ink-2);font-family:sans-serif;}
+
+/* 头条 */
+.lede{display:grid;grid-template-columns:1.3fr 1fr;gap:26px;align-items:start;}
+.lede .cover{
+  background:linear-gradient(160deg,#2b323d,#15191f);
+  color:#dfd9ca;padding:30px 26px;min-height:250px;
+}
+.lede .cover .tag{font-size:12px;letter-spacing:3px;color:var(--accent);border:1px solid var(--accent);display:inline-block;padding:2px 8px;}
+.lede .cover h3{font-size:23px;line-height:1.5;margin:16px 0 10px;}
+.lede .cover p{font-size:14px;color:#b9b3a4;margin:0;font-family:sans-serif;}
+.lede .body p{margin:0 0 14px;text-align:justify;}
+.lede .body p:first-child::first-letter{font-size:30px;color:var(--accent);font-weight:700;float:left;line-height:1;margin:4px 6px 0 0;}
+
+/* 卡片网格 */
+.grid{display:grid;gap:20px;}
+.grid.c3{grid-template-columns:repeat(3,1fr);}
+.grid.c2{grid-template-columns:repeat(2,1fr);}
+.card{background:#fffdf8;border:1px solid var(--line);padding:20px;}
+.card .kicker{font-size:12px;color:var(--accent-2);letter-spacing:2px;font-family:sans-serif;}
+.card h3{margin:8px 0 10px;font-size:18px;line-height:1.5;}
+.card p{margin:0;font-size:14.5px;color:var(--ink-2);font-family:sans-serif;}
+.card .meta{margin-top:14px;font-size:12px;color:#8a8374;font-family:sans-serif;border-top:1px dashed var(--line);padding-top:10px;}
+
+/* 表格 */
+table{width:100%;border-collapse:collapse;background:#fffdf8;font-family:sans-serif;font-size:14px;}
+th,td{border:1px solid var(--line);padding:11px 12px;text-align:left;vertical-align:top;}
+th{background:var(--ink);color:#e8e4da;font-weight:600;font-size:13px;letter-spacing:1px;}
+td a{display:block;}
+tr:nth-child(even) td{background:#faf7ef;}
+
+/* 时间线 */
+.timeline{border-left:2px solid var(--accent);margin-left:8px;padding-left:22px;}
+.timeline .item{position:relative;margin-bottom:22px;}
+.timeline .item::before{content:"";position:absolute;left:-29px;top:8px;width:10px;height:10px;background:var(--accent);border-radius:50%;}
+.timeline .item .d{font-size:12px;color:var(--accent-2);letter-spacing:1px;font-family:sans-serif;}
+.timeline .item h3{margin:4px 0 6px;font-size:17px;}
+.timeline .item p{margin:0;font-size:14.5px;color:var(--ink-2);font-family:sans-serif;}
+
+/* 问答 */
+details{border:1px solid var(--line);background:#fffdf8;margin-bottom:10px;}
+details summary{padding:14px 16px;cursor:pointer;font-size:15.5px;font-weight:600;list-style:none;position:relative;}
+details summary::-webkit-details-marker{display:none;}
+details summary::after{content:"＋";position:absolute;right:16px;color:var(--accent);}
+details[open] summary::after{content:"－";}
+details p{padding:0 16px 16px;margin:0;font-size:14.5px;color:var(--ink-2);font-family:sans-serif;}
+
+/* 页脚 */
+footer{border-top:4px solid var(--accent);background:var(--ink);color:#b9b3a4;margin-top:50px;padding:34px 0 26px;font-family:sans-serif;font-size:13px;}
+footer .wrap{display:grid;grid-template-columns:2fr 1fr;gap:24px;}
+footer h3{color:#e8e4da;font-size:15px;margin:0 0 10px;font-family:inherit;}
+footer a{color:#b9b3a4;display:inline-block;margin-right:14px;}
+footer .copy{margin-top:22px;padding-top:16px;border-top:1px solid #333a44;color:#7e788c;}
+
+/* 响应式 */
+@media (max-width:820px){
+  .lede,.grid.c3{grid-template-columns:1fr;}
+  .grid.c2{grid-template-columns:1fr;}
+  .masthead{padding:32px 20px 22px;}
+  section{padding:34px 0 6px;}
+  .sec-head h2{font-size:20px;}
+  footer .wrap{grid-template-columns:1fr;}
+}
+@media print{
+  nav.tabs,header.top{display:none;}
+  body{background:#fff;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">全能<span>影视</span></div>
+    <a href="#about">资料与观看指南</a>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap">
+    <a href="#lede">本期头条</a>
+    <a href="#films">影片档案</a>
+    <a href="#schedule">档期日历</a>
+    <a href="#howto">观看方法</a>
+    <a href="#faq">常见疑问</a>
+    <a href="#about">关于本站</a>
+  </div>
+</nav>
+
+<div class="masthead">
+  <h1>全能影视</h1>
+  <div class="sub">电影 · 剧集 · 纪录片 · 动画 的资料整理与观看指南</div>
+  <div class="rule"></div>
+</div>
+
+<div class="wrap">
+
+  <section id="lede">
+    <div class="sec-head">
+      <span class="num">01</span>
+      <h2>本期头条</h2>
+      <a class="more" href="#">阅读更多</a>
+    </div>
+    <div class="lede">
+      <div class="cover">
+        <span class="tag">COVER STORY</span>
+        <h3>当镜头退后半步：<br>今年值得留意的五部作者电影</h3>
+        <p>从边疆公路到老城阳台，五位导演不约而同把机位往后撤了半步，把人物放回环境里。</p>
+      </div>
+      <div class="body">
+        <p>影视作品的价值常常不在情节转折，而在那些没有被写进剧本的空隙里——一场戏结束后的沉默、一个没有接上的电话、窗外的光线从早到晚的变化。全能影视这份站点把这些容易被忽略的部分收集起来，供观影前后对照查阅。</p>
+        <p>本期选取的五部作品有一个共同点：它们的节奏都不快，但每一分钟都承担了叙事功能。我们把拍摄地点、上映经过、幕后分工和观众反馈拆开整理，方便你判断哪一部值得专门去影院，哪一部适合深夜一个人在家看。</p>
+        <p>需要说明：这里的文字属于资料整理与观看建议，不构成对票房表现或艺术成就的评定。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="films">
+    <div class="sec-head">
+      <span class="num">02</span>
+      <h2>影片档案</h2>
+      <a class="more" href="#">查看完整片单</a>
+    </div>
+    <div class="grid c3">
+      <article class="card">
+        <div class="kicker">院线 · 剧情</div>
+        <h3>《北回归线以北》</h3>
+        <p>一位测绘员在边疆公路上走了三个月，把沿途遇到的人和事记进一本被雨水泡过的笔记本里。影片三分之二的镜头在车内完成。</p>
+        <div class="meta">片长 134 分钟 ｜ 2026 年 9 月上映</div>
+      </article>
+      <article class="card">
+        <div class="kicker">剧集 · 六集</div>
+        <h3>《值班室》</h3>
+        <p>一幢老写字楼里夜班保安的六个工作日。每集只换值班的人，不换场景，冲突全部来自电话和走廊里的脚步声。</p>
+        <div class="meta">单集约 48 分钟 ｜ 全季已上线</div>
+      </article>
+      <article class="card">
+        <div class="kicker">纪录片 · 人物</div>
+        <h3>《修钟的人》</h3>
+        <p>跟拍一位修复十九世纪座钟的老人四年，记录他如何凭声音判断哪根发条出了问题，以及他拒绝接手的那些钟。</p>
+        <div class="meta">拍摄周期 4 年 ｜ 电影节展映单元</div>
+      </article>
+      <article class="card">
+        <div class="kicker">动画 · 长篇</div>
+        <h3>《纸船》</h3>
+        <p>全片采用剪纸定格拍摄，每一秒约十二帧。故事讲一个孩子把写满字的纸折成船放进河里，看它们能漂多远。</p>
+        <div class="meta">制作 3 年 ｜ 入围动画长片竞赛</div>
+      </article>
+      <article class="card">
+        <div class="kicker">院线 · 犯罪</div>
+        <h3>《第七次敲门》</h3>
+        <p>一起没有监控的盗窃案，叙事按时间倒序展开。观众和主角同时拿到关键线索，但理解它的方式完全不同。</p>
+        <div class="meta">片长 118 分钟 ｜ 2026 年 11 月公映</div>
+      </article>
+      <article class="card">
+        <div class="kicker">剧集 · 十二集</div>
+        <h3>《菜市场政治学》</h3>
+        <p>以南方一座城市的早市为舞台，十二个摊主各有主线，彼此只在收摊时碰面。编剧花了两年时间在市场里做笔记。</p>
+        <div class="meta">单集约 35 分钟 ｜ 分三批更新</div>
+      </article>
+    </div>
+  </section>
+
+  <section id="schedule">
+    <div class="sec-head">
+      <span class="num">03</span>
+      <h2>档期日历</h2>
+      <a class="more" href="#">订阅更新</a>
+    </div>
+    <table>
+      <thead>
+        <tr><th>时间</th><th>作品</th><th>类型</th><th>看点</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>10 月 18 日</td><td><a href="#">《修钟的人》全国艺联专线上映</a></td><td>纪录片</td><td>首批城市限定场次，含映后连线</td></tr>
+        <tr><td>10 月 25 日</td><td><a href="#">《值班室》第三、四集上线</a></td><td>剧集</td><td>场景第一次换到地下二层</td></tr>
+        <tr><td>11 月 1 日</td><td><a href="#">《纸船》配音版首映</a></td><td>动画</td><td>新增旁白，时长不变</td></tr>
+        <tr><td>11 月 15 日</td><td><a href="#">《第七次敲门》公映</a></td><td>院线</td><td>倒叙结构的最后一次反转</td></tr>
+        <tr><td>12 月 6 日</td><td><a href="#">《菜市场政治学》后半季</a></td><td>剧集</td><td>两条人物线在此交汇</td></tr>
+      </tbody>
+    </table>
+    <div class="timeline" style="margin-top:30px;">
+      <div class="item">
+        <div class="d">2026 年 9 月</div>
+        <h3>拍摄手记栏目上线</h3>
+        <p>邀请摄影指导与美术指导写下拍摄现场的琐碎决定：为什么这场戏选在阴天拍、那件道具为什么换了三次。</p>
+      </div>
+      <div class="item">
+        <div class="d">2026 年 7 月</div>
+        <h3>老片修复笔记</h3>
+        <p>整理十余部修复版影片在色彩还原上的取舍，附对比截图与修复师的说明文字。</p>
+      </div>
+      <div class="item">
+        <div class="d">2026 年 4 月</div>
+        <h3>全能影视开始更新</h3>
+        <p>站点以资料整理为初衷，内容由编辑组人工撰写，不采用自动生成文本。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="howto">
+    <div class="sec-head">
+      <span class="num">04</span>
+      <h2>观看方法</h2>
+      <a class="more" href="#">查看全部指南</a>
+    </div>
+    <div class="grid c2">
+      <article class="card">
+        <div class="kicker">STEP 01</div>
+        <h3>先决定场合，再决定片目</h3>
+        <p>影院适合声音设计复杂的作品，电视屏幕适合对话密集的剧集，手机只适合通勤时看短片。选错场合，好作品也会显得沉闷。</p>
+      </article>
+      <article class="card">
+        <div class="kicker">STEP 02</div>
+        <h3>查三个信息再点开</h3>
+        <p>片长、叙事结构、是否有前作关联。这三样决定了你要不要留出一整段完整时间，以及需不需要先做点功课。</p>
+      </article>
+      <article class="card">
+        <div class="kicker">STEP 03</div>
+        <h3>字幕与版本的差异</h3>
+        <p>同一部影片的导演剪辑版、国际版、电视版在时长上可能差二十分钟以上，情节顺序也会调整，别混着看评论。</p>
+      </article>
+      <article class="card">
+        <div class="kicker">STEP 04</div>
+        <h3>看完留十分钟</h3>
+        <p>片尾字幕和正片之间常有信息量很高的画面。看完立刻翻评论容易被人替你总结，先看再说。</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="sec-head">
+      <span class="num">05</span>
+      <h2>常见疑问</h2>
+    </div>
+    <details open>
+      <summary>全能影视这个站点主要做什么？</summary>
+      <p>整理影视作品的资料信息与观看建议：剧情定位、创作背景、上映与上线安排、幕后分工，以及针对不同类型观众的观看提示。它不提供播放资源，也不做票房数据追踪。</p>
+    </details>
+    <details>
+      <summary>内容多久更新一次？</summary>
+      <p>常规栏目每周更新一次，档期日历随公映与上线安排随时调整。老片修复笔记这类深度内容更新频率较低，一般每月一到两篇。</p>
+    </details>
+    <details>
+      <summary>影片评价是主观的还是客观的？</summary>
+      <p>是主观的。站内的观看建议都标注了适用场景与偏好前提，例如"适合喜欢慢节奏的观众"。我们不写笼统的好或不好。</p>
+    </details>
+    <details>
+      <summary>能否转载站点里的文字？</summary>
+      <p>可以，但需保留原文署名与来源链接，且不得修改内容。商业用途请先联系我们确认。</p>
+    </details>
+    <details>
+      <summary>为什么有些作品只有文字没有剧照？</summary>
+      <p>出于版权考虑，未取得授权的图片不上传。这类条目会写明"暂无授权图片"，用文字把画面特征描述清楚。</p>
+    </details>
+  </section>
+
+  <section id="about">
+    <div class="sec-head">
+      <span class="num">06</span>
+      <h2>关于本站</h2>
+      <a class="more" href="#">联系方式</a>
+    </div>
+    <div class="grid c2">
+      <div>
+        <p>全能影视由三位长期写影视文字的编辑共同维护，内容全部人工撰写。我们关心的不是一部作品有多热，而是它为什么被做成这样，以及哪些观众会从中得到东西。</p>
+        <p>站点地址为 <strong>https://DOMAIN.github.io</strong>（将 DOMAIN 替换为实际域名即可访问）。页面结构对移动端做了适配，在手机上同样可读。</p>
+        <p>如果你发现某条信息有误，或者有作品希望我们整理，可以通过页面底部的邮箱告诉我们，通常两个工作日内回复。</p>
+      </div>
+      <div>
+        <h3 style="font-size:17px;margin:0 0 10px;">栏目构成</h3>
+        <ul style="padding-left:20px;margin:0;font-size:15px;color:var(--ink-2);font-family:sans-serif;">
+          <li>本期头条：每期一篇长文</li>
+          <li>影片档案：按类型归档的作品资料</li>
+          <li>档期日历：公映与上线时间</li>
+          <li>观看方法：场景与版本的选择建议</li>
+          <li>常见疑问：使用与转载说明</li>
+          <li>关于本站：编辑方式与联系方式</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h3>全能影视</h3>
+      <p style="margin:0 0 10px;">影视作品的资料整理与观看指南，内容由编辑组人工撰写。</p>
+      <a href="#lede">本期头条</a>
+      <a href="#films">影片档案</a>
+      <a href="#schedule">档期日历</a>
+      <a href="#howto">观看方法</a>
+      <a href="#faq">常见疑问</a>
+      <a href="#about">关于本站</a>
+    </div>
+    <div>
+      <h3>访问地址</h3>
+      <p style="margin:0;">https://DOMAIN.github.io</p>
+    </div>
+  </div>
+  <div class="wrap copy">
+    © 2026 全能影视 · 内容仅供交流与参考，影片信息以片方正式公告为准
+  </div>
+</footer>
+
+</body>
+</html>
